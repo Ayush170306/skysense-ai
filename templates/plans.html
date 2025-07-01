@@ -1,0 +1,95 @@
+<!-- templates/plans.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SkySense – Subscription Plans</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="container py-5">
+  <h2 class="text-center fw-bold mb-5">Choose the Right Plan for You</h2>
+
+  <div class="row text-center">
+    <!-- Free Plan -->
+    <div class="col-md-4 mb-4">
+      <div class="card border border-secondary h-100 shadow-sm">
+        <div class="card-header bg-light text-dark fw-bold">Free</div>
+        <div class="card-body">
+          <h3 class="card-title">₹0</h3>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>🌤 Basic Weather Search</li>
+            <li>📊 3-Day AI Forecast</li>
+            <li>📥 Limited Storage</li>
+          </ul>
+          <a href="#" class="btn btn-outline-primary">Get Started</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pro Plan -->
+    <div class="col-md-4 mb-4">
+      <div class="card border-primary h-100 shadow">
+        <div class="card-header bg-primary text-white fw-bold">Pro</div>
+        <div class="card-body">
+          <h3 class="card-title">₹99/month</h3>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>🌦 Full Weather Dashboard</li>
+            <li>📈 7-Day AI Forecast</li>
+            <li>💬 Chatbot Support</li>
+            <li>🔔 Weather Alerts</li>
+          </ul>
+          <a href="#" class="btn btn-primary">Subscribe</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Premium Plan -->
+    <div class="col-md-4 mb-4">
+      <div class="card border-warning h-100 shadow-sm">
+        <div class="card-header bg-warning text-dark fw-bold">Premium</div>
+        <div class="card-body">
+          <h3 class="card-title">₹199/month</h3>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>🌐 Global Forecast Access</li>
+            <li>📊 14-Day AI Forecast + Graphs</li>
+            <li>📡 Satellite Insights</li>
+            <li>🛠 Developer API Access</li>
+          </ul>
+          <a href="#" class="btn btn-warning">Go Premium</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comparison Table -->
+  <h4 class="mt-5 fw-semibold text-center">Compare All Features</h4>
+  <div class="table-responsive mt-3">
+    <table class="table table-bordered text-center">
+      <thead class="table-light">
+        <tr>
+          <th>Features</th>
+          <th>Free</th>
+          <th>Pro</th>
+          <th>Premium</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Basic Weather Data</td><td>✔</td><td>✔</td><td>✔</td></tr>
+        <tr><td>AI-Powered Forecast</td><td>3 days</td><td>7 days</td><td>14 days</td></tr>
+        <tr><td>Access to Dashboard</td><td>✘</td><td>✔</td><td>✔</td></tr>
+        <tr><td>Chatbot Assistance</td><td>✘</td><td>✔</td><td>✔</td></tr>
+        <tr><td>Alerts & Notifications</td><td>✘</td><td>✔</td><td>✔</td></tr>
+        <tr><td>Satellite Data</td><td>✘</td><td>✘</td><td>✔</td></tr>
+        <tr><td>Developer API</td><td>✘</td><td>✘</td><td>✔</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>

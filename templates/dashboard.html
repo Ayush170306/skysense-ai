@@ -1,0 +1,121 @@
+<!-- templates/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SkySense – Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="container py-5">
+    <h2 class="mb-4 fw-bold text-center">User Dashboard</h2>
+
+    <!-- Summary Cards -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card text-white bg-primary">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Avg Temp</h5>
+                    <p class="card-text">26.5 °C</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-success">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Humidity</h5>
+                    <p class="card-text">72%</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-warning">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Wind Speed</h5>
+                    <p class="card-text">3.4 m/s</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-info">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Searches</h5>
+                    <p class="card-text">7 Cities</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Saved Search Cards -->
+    <h4 class="mb-3">Recent Lookups</h4>
+    <div class="row mb-4">
+        {% for city in ['Delhi', 'Mumbai', 'London', 'Tokyo'] %}
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ city }}</h5>
+                    <p class="card-text">Temp: 27°C</p>
+                    <p class="card-text">Condition: Sunny</p>
+                    <small>⏱️ 2 hours ago</small>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Forecast Plot -->
+    <div class="card p-4 shadow-sm mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <h5>AI-Based Forecast Chart</h5>
+            <select id="chart-select" class="form-select w-auto">
+                <option value="temp">Temperature</option>
+                <option value="humidity">Humidity</option>
+            </select>
+        </div>
+        <div id="dashboard-plot" style="height:400px;"></div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script>
+    const forecastData = {
+        temp: [25, 26, 27, 28, 26],
+        humidity: [70, 72, 74, 73, 71],
+        dates: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
+    };
+
+    function plotDashboard(metric) {
+        const trace = {
+            x: forecastData.dates,
+            y: forecastData[metric],
+            type: 'scatter',
+            mode: 'lines+markers',
+            name: metric === 'temp' ? 'Temperature (°C)' : 'Humidity (%)',
+            line: { color: metric === 'temp' ? '#1f77b4' : '#2ca02c' }
+        };
+
+        const layout = {
+            title: metric === 'temp' ? 'Temperature Forecast' : 'Humidity Forecast',
+            xaxis: { title: 'Day' },
+            yaxis: { title: metric === 'temp' ? '°C' : '%' }
+        };
+
+        Plotly.newPlot('dashboard-plot', [trace], layout);
+    }
+
+    // On page load
+    plotDashboard('temp');
+
+    // On chart toggle
+    document.getElementById('chart-select').addEventListener('change', function () {
+        plotDashboard(this.value);
+    });
+</script>
+
+</body>
+</html>

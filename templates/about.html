@@ -1,0 +1,68 @@
+<!-- templates/about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About – SkySense</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="container py-5">
+  <h2 class="text-center fw-bold mb-4">About SkySense</h2>
+
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <h5 class="fw-semibold">🌦 Our Mission</h5>
+      <p>
+        SkySense aims to provide intelligent, accessible, and real-time weather insights using AI-powered forecasting models.
+        It helps users make informed decisions with accurate weather prediction and easy-to-use tools.
+      </p>
+    </div>
+    <div class="col-md-6">
+      <h5 class="fw-semibold">🛠 Built With</h5>
+      <ul>
+        <li>Python, Flask</li>
+        <li>HTML, CSS, JavaScript, Bootstrap, Plotly.js</li>
+        <li>LSTM model (TensorFlow/Keras)</li>
+        <li>IBM Watson Studio (Model Training)</li>
+        <li>IBM Watson Assistant (Chatbot)</li>
+        <li>OpenWeatherMap API</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="text-center my-5">
+    <h5 class="fw-semibold">📊 Project Architecture</h5>
+    <img src="{{ url_for('static', filename='images/architecture.png') }}" alt="Architecture Diagram" class="img-fluid rounded shadow">
+    <p class="text-muted mt-2">High-level design of the SkySense system</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h5 class="fw-semibold">👨‍💻 Project Team</h5>
+      <ul>
+        <li>Ayush Aggarwal – Frontend & UI/UX</li>
+        <li>Team Member 2 – AI Model & Flask Integration</li>
+        <li>Team Member 3 – IBM Cloud & Deployment</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h5 class="fw-semibold">🚀 Goals</h5>
+      <ul>
+        <li>Professional-grade weather dashboard</li>
+        <li>Accurate, AI-powered multi-day forecasts</li>
+        <li>User-friendly tools & modern UI</li>
+        <li>Cloud integration and chatbot support</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

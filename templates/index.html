@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Hero Section -->
+<div class="text-center mb-5">
+    <h1 class="display-4">Welcome to SkySense</h1>
+    <p class="lead">Your personal AI-powered weather assistant</p>
+    <a href="/forecast" class="btn btn-primary btn-lg mt-3">Try Forecast Tools</a>
+</div>
+
+<!-- About SkySense -->
+<section class="mb-5">
+    <h2 class="text-center mb-4">What is SkySense?</h2>
+    <p class="text-center px-4">
+        SkySense is an intelligent web-based weather forecasting platform that blends live weather data, artificial intelligence, and interactive visualizations into one seamless user experience. Whether you want today's temperature, a 5-day forecast, or upcoming weather trends, SkySense delivers it with clarity and accuracy.
+    </p>
+</section>
+
+<!-- Features Section -->
+<section class="mb-5">
+    <h2 class="text-center mb-4">Key Features</h2>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="feature-card p-4 shadow-sm bg-light rounded">
+                <h5>🌦 Live Weather</h5>
+                <p>Get real-time weather information for any city worldwide.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card p-4 shadow-sm bg-light rounded">
+                <h5>📈 AI Forecast</h5>
+                <p>Powered by machine learning, our predictions get smarter every day.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card p-4 shadow-sm bg-light rounded">
+                <h5>🤖 Chatbot Help</h5>
+                <p>Need assistance? Our AI chatbot is here 24/7 to answer your queries.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Highlights -->
+<section class="mb-5">
+    <h2 class="text-center mb-4">From the SkySense Blog</h2>
+    <div class="row">
+        <!-- Blog 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="https://source.unsplash.com/400x200/?climate" class="card-img-top" alt="Climate Change">
+                <div class="card-body">
+                    <h5 class="card-title">How AI is Changing Weather Forecasting</h5>
+                    <p class="card-text">Explore how machine learning models are improving accuracy and efficiency in predicting weather patterns.</p>
+                    <a href="#" class="btn btn-outline-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="https://source.unsplash.com/400x200/?storm,weather" class="card-img-top" alt="Storm Safety">
+                <div class="card-body">
+                    <h5 class="card-title">Staying Safe During Extreme Weather</h5>
+                    <p class="card-text">Top safety tips and tools to prepare for storms, floods, and other extreme weather conditions.</p>
+                    <a href="#" class="btn btn-outline-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="https://source.unsplash.com/400x200/?forecast,technology" class="card-img-top" alt="Forecasting Tech">
+                <div class="card-body">
+                    <h5 class="card-title">Tech Behind SkySense</h5>
+                    <p class="card-text">Go behind the scenes and learn what powers our real-time dashboards and AI models.</p>
+                    <a href="#" class="btn btn-outline-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

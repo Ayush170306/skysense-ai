@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-center">Weather Forecast</h2>
+<form method="POST" action="/forecast" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="city" class="form-control" placeholder="Enter city" required>
+        <button type="submit" class="btn btn-primary">Get Forecast</button>
+    </div>
+</form>
+
+{% if weather %}
+    {% if weather.error %}
+        <div class="alert alert-danger">{{ weather.error }}</div>
+    {% else %}
+        <div class="card mt-4 p-4 shadow-sm">
+            <h3>{{ weather.city }}</h3>
+            <p><strong>Temperature:</strong> {{ weather.temperature }}°C</p>
+            <p><strong>Humidity:</strong> {{ weather.humidity }}%</p>
+            <p><strong>Pressure:</strong> {{ weather.pressure }} hPa</p>
+        </div>
+        <div class="mt-4" id="forecast-plot"></div>
+        {% if forecast_data %}
+        <script>
+        (function() {
+            let labels = ( forecast_data.dates | tojson );
+            let temps1 = ( forecast_data.temps | tojson );
+        
+            let trace = {
+                x: labels,
+                y: temps1,
+                type: 'scatter',
+                mode: 'lines+markers',
+                name: 'Predicted Temperature',
+                line: { color: 'royalblue' }
+            };
+        
+            let layout = {
+                title: '5-Day Forecast',
+                xaxis: { title: 'Day' },
+                yaxis: { title: 'Temperature (°C)' }
+            };
+        
+            Plotly.newPlot('forecast-plot', [trace], layout);
+        })();
+        </script>
+        {% endif %}
+
+    {% endif %}
+{% endif %}
+{% endblock %}
