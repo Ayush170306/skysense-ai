@@ -62,3 +62,23 @@ main {
     width: 100%;
     border-bottom: 1px solid #ddd;
 }
+
+/* Default light mode = no class */
+
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode .card {
+  background-color: #1f1f1f;
+  border-color: #333;
+  color: #eee;
+}
+
+body.dark-mode .navbar,
+body.dark-mode .footer {
+  background-color: #111 !important;
+  color: #fff;
+}
+
